@@ -10,11 +10,13 @@ fn main() {
     for n in dom.children {
         match n {
             Node::Element(e) => ts.push(convert(e)),
-            _ => todo!(),
+            _ => (),
         }
     }
 
-    println!("{:?}", ts);
+    for t in ts {
+        println!("{}", t);
+    }
 }
 
 fn convert(c: Element) -> TreeNode {
@@ -30,31 +32,55 @@ fn convert(c: Element) -> TreeNode {
         .children
         .into_iter()
         .filter(|c| match c {
-            Node::Element(_) => true,
+            Node::Element(_) | Node::Text(_) => true,
             _ => false,
         })
         .map(|c| match c {
-            Node::Element(e) => convert(e),
+            Node::Element(e) => Children::Elem(convert(e)),
+            Node::Text(s) => Children::Text(s),
             _ => unreachable!(),
         })
-        .collect::<Vec<TreeNode>>();
+        .collect::<Vec<Children>>();
 
     t
+}
+
+enum Children {
+    Text(String),
+    Elem(TreeNode),
 }
 
 struct TreeNode {
     name: String,
     attrs: Vec<(String, String)>,
-    children: Vec<TreeNode>,
+    children: Vec<Children>,
 }
 
-impl std::fmt::Debug for TreeNode {
+impl std::fmt::Display for Children {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        f.debug_struct("TreeNode")
-            .field("name", &self.name)
-            .field("attrs", &self.attrs)
-            .field("children", &self.children)
-            .finish()
+        match self {
+            Children::Text(s) => write!(f, "{}", s),
+            Children::Elem(e) => write!(f, "{}", e),
+        }
+    }
+}
+
+impl std::fmt::Display for TreeNode {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        write!(f, "\\<html:{}>", self.name)?;
+
+        for (k, v) in &self.attrs {
+            write!(f, "[{}]{{{}}}", k, v)?;
+        }
+
+        write!(f, "{{")?;
+
+        for c in &self.children {
+            write!(f, "{}", c)?;
+        }
+
+        write!(f, "}}")?;
+        Ok(())
     }
 }
 
