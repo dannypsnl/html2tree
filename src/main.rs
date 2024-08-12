@@ -3,7 +3,8 @@ use std::fs::read_to_string;
 use html_parser::*;
 
 fn main() {
-    let s = read_to_string("test.html").expect("failed");
+    let args: Vec<_> = std::env::args().collect();
+    let s = read_to_string(args[1].clone()).expect("failed");
     let dom = Dom::parse(s.as_str()).unwrap();
 
     let mut ts = vec![];
