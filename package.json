@@ -6,5 +6,9 @@
   "dependencies": {
     "htmlparser2": "^9.1.0",
     "vanjs-core": "^1.5.1"
+  },
+  "scripts": {
+    "build": "parcel build --public-url ./",
+    "release": "push-dir --dir=dist --branch=gh-pages --cleanup --verbose"
   }
 }
