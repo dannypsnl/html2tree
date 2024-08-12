@@ -8,3 +8,13 @@ pre {
   background-color: bisque;
   white-space: pre-wrap;
 }
+
+pre button {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+}
+pre button:hover {
+  cursor: pointer;
+  background-color: darkgray
+}

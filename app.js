@@ -33,15 +33,17 @@ const App = () => {
       value: html_input,
       oninput: (e) => (html_input.val = e.target.value),
     }),
-    pre(output_tree),
-    button(
-      {
-        onclick: () => {
-          navigator.clipboard.writeText(output_tree.val);
-          alert("copied!");
+    pre(
+      output_tree,
+      button(
+        {
+          onclick: () => {
+            navigator.clipboard.writeText(output_tree.val);
+            alert("copied!");
+          },
         },
-      },
-      "copy"
+        "copy"
+      )
     )
   );
 };
