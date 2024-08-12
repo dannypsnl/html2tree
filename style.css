@@ -1,0 +1,10 @@
+textarea {
+  float: left;
+  width: 50%;
+  height: 40em;
+}
+
+pre {
+  background-color: bisque;
+  white-space: pre-wrap;
+}

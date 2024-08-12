@@ -1,7 +1,7 @@
 import van from "vanjs-core";
 import * as htmlparser2 from "htmlparser2";
 
-const { p, div, pre, input } = van.tags;
+const { button, div, pre, textarea } = van.tags;
 
 const html2tree = (str) => {
   let res = ``;
@@ -29,13 +29,20 @@ const App = () => {
   const output_tree = van.derive(() => html2tree(html_input.val));
 
   return div(
-    input({
-      type: "text",
+    textarea({
       value: html_input,
       oninput: (e) => (html_input.val = e.target.value),
     }),
-    pre("output part:"),
-    p(output_tree)
+    pre(output_tree),
+    button(
+      {
+        onclick: () => {
+          navigator.clipboard.writeText(output_tree.val);
+          alert("copied!");
+        },
+      },
+      "copy"
+    )
   );
 };
 
