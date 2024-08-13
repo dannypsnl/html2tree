@@ -13,9 +13,13 @@ pre {
 }
 
 pre button {
-  position: absolute;
-  top: 15px;
-  right: 15px;
+  /* position: absolute; */
+  /* top: 15px; */
+  /* right: 15px; */
+  display: inline-block;
+  inset: 5px 5px auto auto;
+  border: 1px solid;
+  box-shadow: -3px 3px #999;
 }
 pre button:hover {
   cursor: pointer;
@@ -35,4 +39,9 @@ pre code {
   overflow-x: scroll;
   max-width: 100%;
   min-width: 100px;
+}
+
+h1,
+p {
+  text-align: center;
 }

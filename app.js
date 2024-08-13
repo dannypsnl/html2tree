@@ -2,7 +2,7 @@ import van from "vanjs-core";
 import * as htmlparser2 from "htmlparser2";
 import { svg } from "./example";
 
-const { code, button, div, pre, textarea } = van.tags;
+const { h1, code, button, div, pre, textarea, p } = van.tags;
 
 const html2tree = (str) => {
   let res = ``;
@@ -28,20 +28,26 @@ const App = () => {
   );
 
   return div(
-    textarea({
-      value: html_input,
-      oninput: (e) => (html_input.val = e.target.value),
-    }),
-    pre(
-      code(output_tree),
-      button(
-        {
-          onclick: () => {
-            navigator.clipboard.writeText(output_tree.val);
-            alert("copied!");
+    h1("html2tree"),
+    p(
+      `Put HTML into the textarea, then copy the forester tree right hand side.`
+    ),
+    div(
+      textarea({
+        value: html_input,
+        oninput: (e) => (html_input.val = e.target.value),
+      }),
+      pre(
+        code(output_tree),
+        button(
+          {
+            onclick: () => {
+              navigator.clipboard.writeText(output_tree.val);
+              alert("copied!");
+            },
           },
-        },
-        "copy"
+          "copy"
+        )
       )
     )
   );
