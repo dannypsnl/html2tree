@@ -26,7 +26,11 @@ const App = () => {
      — Lîm Tsú-thuàn (@dannypsnl) <a href="https://g0v.social/@dannypsnl/112946647273534525"><time datetime="2024-08-12T02:17:46.064Z">8/12/2024, 10:17:46 AM</time></a>
   </footer>
 </blockquote>`);
-  const output_tree = van.derive(() => html2tree(html_input.val));
+  const output_tree = van.derive(
+    () =>
+      `\\xmlns:html{http://www.w3.org/1999/xhtml}\n\n` +
+      html2tree(html_input.val)
+  );
 
   return div(
     textarea({
