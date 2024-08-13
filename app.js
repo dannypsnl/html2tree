@@ -42,6 +42,7 @@ const App = () => {
     }),
     label({ for: `add-namespace` }, `disable inserted namespace`),
     div(
+      { class: `edit-board` },
       textarea({
         value: html_input,
         oninput: (e) => (html_input.val = e.target.value),

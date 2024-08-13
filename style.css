@@ -1,9 +1,13 @@
+.edit-board {
+  display: flex;
+}
+
 textarea {
-  /* float: left; */
   width: 50%;
   overflow: hidden;
   min-height: 50em;
   overflow-y: auto;
+  border-radius: 0.3rem;
 }
 
 pre {
@@ -12,6 +16,10 @@ pre {
   border-radius: 0.5rem;
   position: relative;
   width: 50%;
+  min-height: 50em;
+  overflow-y: auto;
+  margin-top: 0;
+  margin-bottom: 0;
 }
 
 pre button {
