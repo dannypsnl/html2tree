@@ -12,12 +12,14 @@ pre {
   border-radius: 0.5rem;
 }
 
+pre button::before {
+  position: absolute;
+}
 pre button {
-  /* position: absolute; */
-  /* top: 15px; */
-  /* right: 15px; */
+  position: relative;
+  top: 15px;
+  right: 15px;
   inset: 5px 5px auto auto;
-  border: 1px solid;
   box-shadow: -3px 3px #999;
 }
 pre button:hover {
