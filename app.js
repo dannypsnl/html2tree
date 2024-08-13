@@ -1,6 +1,6 @@
 import van from "vanjs-core";
 import * as htmlparser2 from "htmlparser2";
-import { svg } from "./example";
+import { svg as example } from "./example";
 
 const { h1, code, button, div, pre, textarea, p } = van.tags;
 
@@ -20,7 +20,7 @@ const html2tree = (str) => {
 };
 
 const App = () => {
-  const html_input = van.state(svg);
+  const html_input = van.state(example);
   const output_tree = van.derive(
     () =>
       `\\xmlns:html{http://www.w3.org/1999/xhtml}\n\n` +
