@@ -10,8 +10,9 @@ textarea {
   border-radius: 0.3rem;
 }
 
+/* output code block */
 pre {
-  background-color: #ffeff0;
+  background-color: aliceblue;
   white-space: pre-wrap;
   border-radius: 0.5rem;
   position: relative;
@@ -21,7 +22,21 @@ pre {
   margin-top: 0;
   margin-bottom: 0;
 }
+code {
+  font-family: monospace;
+  font-size: 19px;
+  background: #ffeff0;
+}
+pre code {
+  display: block;
+  white-space: pre;
+  -webkit-overflow-scrolling: touch;
+  overflow-x: scroll;
+  max-width: 100%;
+  min-width: 100px;
+}
 
+/* copy button */
 pre button {
   position: absolute;
   top: 15px;
@@ -32,21 +47,6 @@ pre button {
 pre button:hover {
   cursor: pointer;
   background-color: darkgray;
-}
-
-code {
-  font-family: monospace;
-  font-size: inherit;
-  background: #ffeff0;
-}
-
-pre code {
-  display: block;
-  white-space: pre;
-  -webkit-overflow-scrolling: touch;
-  overflow-x: scroll;
-  max-width: 100%;
-  min-width: 100px;
 }
 
 h1,
