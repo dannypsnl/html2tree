@@ -1,12 +1,15 @@
 textarea {
   float: left;
   width: 50%;
-  height: 40em;
+  overflow: hidden;
+  min-height: 50em;
+  overflow-y: auto;
 }
 
 pre {
-  background-color: bisque;
+  background-color: #ffeff0;
   white-space: pre-wrap;
+  border-radius: 0.5rem;
 }
 
 pre button {
@@ -16,5 +19,20 @@ pre button {
 }
 pre button:hover {
   cursor: pointer;
-  background-color: darkgray
+  background-color: darkgray;
+}
+
+code {
+  font-family: monospace;
+  font-size: inherit;
+  background: #ffeff0;
+}
+
+pre code {
+  display: block;
+  white-space: pre;
+  -webkit-overflow-scrolling: touch;
+  overflow-x: scroll;
+  max-width: 100%;
+  min-width: 100px;
 }
