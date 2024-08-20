@@ -1,5 +1,5 @@
 {
-  "source" : "index.html",
+  "source": "index.html",
   "devDependencies": {
     "parcel": "^2.12.0"
   },
@@ -8,6 +8,7 @@
     "vanjs-core": "^1.5.1"
   },
   "scripts": {
+    "start": "parcel index.html",
     "build": "parcel build --public-url ./",
     "release": "push-dir --dir=dist --branch=gh-pages --cleanup --verbose"
   }

@@ -24,8 +24,7 @@ pre {
 }
 code {
   font-family: monospace;
-  font-size: 19px;
-  background: #ffeff0;
+  font-size: 16px;
 }
 pre code {
   display: block;
