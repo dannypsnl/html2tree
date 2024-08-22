@@ -1,8 +1,7 @@
 {
   "source": "index.html",
   "devDependencies": {
-    "parcel": "^2.12.0",
-    "push-dir": "^0.4.1"
+    "parcel": "^2.12.0"
   },
   "dependencies": {
     "htmlparser2": "^9.1.0",
@@ -10,7 +9,6 @@
   },
   "scripts": {
     "start": "parcel index.html",
-    "build": "parcel build --public-url ./",
-    "release": "push-dir --dir=dist --branch=gh-pages --cleanup --verbose"
+    "build": "parcel build --public-url ./"
   }
 }
